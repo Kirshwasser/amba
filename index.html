@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sagana – амбассадорская программа | Зарабатывай на рекомендациях ИИ-сервиса</title>
+    <meta name="description" content="Рекомендуй Sagana своей аудитории – получай 40% с каждой подписки пожизненно. Российский агрегатор ИИ без VPN, готовые промо-материалы, ежемесячные выплаты.">
+    <meta name="keywords" content="амбассадорская программа, ревшар, партнерская программа, заработок блогеру, Sagana амбассадор, ИИ партнерка">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sagana – амбассадорская программа">
+    <meta property="og:description" content="40% с подписок пожизненно. Высокая конверсия. Готовые материалы.">
+    <meta property="og:locale" content="ru_RU">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        primary: '#FF6B35',
+                        'primary-dark': '#E55100',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg {
+            background: radial-gradient(ellipse at top, rgba(255,107,53,0.15) 0%, rgba(255,107,53,0) 60%);
+        }
+        .number-card {
+            background: linear-gradient(135deg, #FF6B35 0%, #E55100 100%);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #E5E7EB;
+            height: 6px;
+            border-radius: 3px;
+        }
+        .dark input[type="range"]::-webkit-slider-runnable-track {
+            background: #374151;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            margin-top: -7px;
+            width: 20px;
+            height: 20px;
+            background: #FF6B35;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(255,107,53,0.4);
+        }
+        input[type="range"]::-moz-range-track {
+            background: #E5E7EB;
+            height: 6px;
+            border-radius: 3px;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #FF6B35;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(255,107,53,0.4);
+        }
+
+        /* "Why" cards stacked → spread linked to scroll progress (desktop only) */
+        @media (min-width: 1024px) {
+            .why-grid {
+                --reveal: 0;
+            }
+            .why-grid .why-card {
+                will-change: transform;
+            }
+            .why-grid .why-card:nth-child(1) {
+                transform:
+                    translateX(calc(150% * (1 - var(--reveal))))
+                    translateY(0)
+                    rotate(calc(-3deg * (1 - var(--reveal))));
+                z-index: 4;
+            }
+            .why-grid .why-card:nth-child(2) {
+                transform:
+                    translateX(calc(50% * (1 - var(--reveal))))
+                    translateY(calc(8px * (1 - var(--reveal))))
+                    rotate(calc(-1deg * (1 - var(--reveal))));
+                z-index: 3;
+            }
+            .why-grid .why-card:nth-child(3) {
+                transform:
+                    translateX(calc(-50% * (1 - var(--reveal))))
+                    translateY(calc(16px * (1 - var(--reveal))))
+                    rotate(calc(1deg * (1 - var(--reveal))));
+                z-index: 2;
+            }
+            .why-grid .why-card:nth-child(4) {
+                transform:
+                    translateX(calc(-150% * (1 - var(--reveal))))
+                    translateY(calc(24px * (1 - var(--reveal))))
+                    rotate(calc(3deg * (1 - var(--reveal))));
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <a href="https://sagana.ru/" target="_blank" class="flex items-center gap-2">
+                <img src="logo-light.svg" alt="Sagana" class="h-8 dark:hidden">
+                <img src="logo-dark.svg" alt="Sagana" class="h-8 hidden dark:block">
+            </a>
+            <nav class="hidden md:flex gap-7">
+                <a href="#conditions" class="text-sm font-medium hover:text-primary transition">Условия</a>
+                <a href="#calculator" class="text-sm font-medium hover:text-primary transition">Расчёт дохода</a>
+                <a href="#how" class="text-sm font-medium hover:text-primary transition">Как начать</a>
+                <a href="#faq" class="text-sm font-medium hover:text-primary transition">Вопросы</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-5">
+            <a href="https://app.sagana.ru/" target="_blank" class="text-sm font-medium hover:text-primary transition hidden sm:inline">Я уже амбассадор</a>
+            <a href="#apply" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                Стать амбассадором
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="relative gradient-bg pt-12 pb-12 md:pt-16 md:pb-20 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Left: mockup PNG (transparent background, MacBook dashboard) -->
+            <div class="order-2 md:order-1 flex justify-center md:justify-start relative">
+                <div class="relative w-full max-w-xl">
+                    <img src="hero-mockup.png" alt="Дашборд амбассадора Sagana – начисления, баланс ревшара, заработано всего" class="w-full h-auto" onerror="this.outerHTML='<div class=&quot;w-full aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl flex items-center justify-center text-primary/40 text-sm border-2 border-dashed border-primary/30&quot;>hero-mockup.png</div>'">
+                    <!-- Floating badges over the upper part of the mockup -->
+                    <span class="absolute top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs sm:text-sm font-bold px-3 py-2 rounded-full shadow-lg border border-gray-100 dark:border-gray-700">
+                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Без VPN
+                    </span>
+                    <span class="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-xs sm:text-sm font-bold px-3 py-2 rounded-full shadow-lg border border-gray-100 dark:border-gray-700">
+                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        оплата в рублях
+                    </span>
+                </div>
+            </div>
+            <!-- Right: text content -->
+            <div class="order-1 md:order-2 text-center md:text-left fade-in">
+                <span class="inline-block bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+                    Амбассадорская программа
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight">
+                    Рекомендуй <span class="text-primary">Sagana</span> и зарабатывай
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-3">
+                    Sagana – <strong class="text-gray-900 dark:text-white">российский сервис с лучшими AI-моделями</strong>
+                </p>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10">
+                    <strong class="text-gray-900 dark:text-white">Это сервис, который ищут все:</strong> универсальный для любой ниши, с понятной болью и высокой конверсией
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#apply" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold transition inline-block">
+                        Стать амбассадором
+                    </a>
+                    <a href="#calculator" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl font-bold transition inline-block">
+                        Рассчитать доход
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY SAGANA IS A WINNING PRODUCT TO PROMOTE -->
+<section id="why" class="bg-gray-50 dark:bg-gray-800 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Почему Sagana продаётся, а не пылится</h2>
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-14">
+            Не каждая партнёрка работает. Эта работает по четырём причинам – и каждая значит больше дохода для тебя
+        </p>
+        <div class="why-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="why-card bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <img src="images/why-1.png" alt="" class="w-full aspect-[4/3] object-cover bg-gray-100 dark:bg-gray-800" onerror="this.outerHTML='<div class=&quot;w-full aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary/40 text-xs&quot;>картинка 4:3</div>'">
+                <div class="p-6">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-center">Универсальная ниша</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        <strong class="text-gray-900 dark:text-white">ИИ нужен всем</strong>: SMM, копирайтеру, разработчику, студенту, маме, бизнесмену. <strong class="text-gray-900 dark:text-white">Не нужно менять контент-стратегию</strong> – рекомендуй внутри своей темы
+                    </p>
+                </div>
+            </div>
+            <div class="why-card bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <img src="images/why-2.png" alt="" class="w-full aspect-[4/3] object-cover bg-gray-100 dark:bg-gray-800" onerror="this.outerHTML='<div class=&quot;w-full aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary/40 text-xs&quot;>картинка 4:3</div>'">
+                <div class="p-6">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-center">Реальная боль</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        ChatGPT в России – это <strong class="text-gray-900 dark:text-white">VPN, иностранные карты, посредники с накруткой</strong>. Sagana <strong class="text-gray-900 dark:text-white">снимает все три проблемы одним сервисом</strong>. Это не «нужно объяснять», это очевидно
+                    </p>
+                </div>
+            </div>
+            <div class="why-card bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <img src="images/why-3.png" alt="" class="w-full aspect-[4/3] object-cover bg-gray-100 dark:bg-gray-800" onerror="this.outerHTML='<div class=&quot;w-full aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary/40 text-xs&quot;>картинка 4:3</div>'">
+                <div class="p-6">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-center">Тренд года</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        ИИ – <strong class="text-gray-900 dark:text-white">самая обсуждаемая тема 2026-го</strong>. <strong class="text-gray-900 dark:text-white">Алгоритмы соцсетей вытаскивают в топ</strong> контент про нейросети. Твои просмотры <strong class="text-gray-900 dark:text-white">окупятся быстрее</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="why-card bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <img src="images/why-4.png" alt="" class="w-full aspect-[4/3] object-cover bg-gray-100 dark:bg-gray-800" onerror="this.outerHTML='<div class=&quot;w-full aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary/40 text-xs&quot;>картинка 4:3</div>'">
+                <div class="p-6">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-center">Низкий порог входа</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Тестовый период – <strong class="text-gray-900 dark:text-white">29 ₽ за 3 дня</strong>. Это <strong class="text-gray-900 dark:text-white">конверсия в подписку в разы выше</strong>, чем у конкурентов с триалом за карточку или платным ChatGPT
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONDITIONS -->
+<section id="conditions" class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Условия – без скрытых звёздочек</h2>
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-14">
+            Никаких сроков «активного» статуса, никаких порогов «надо привести 100 человек, чтобы получить хоть рубль». Привёл одного – получаешь с него
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-6 md:p-8 shadow-xl">
+                <p class="text-sm font-bold uppercase tracking-wider opacity-80 mb-6 text-center">Многоуровневая комиссия</p>
+
+                <!-- Pyramid: top tier (widest, biggest %) → bottom tier (narrowest, smallest %) -->
+                <div class="space-y-3">
+                    <!-- TIER 1: 15% (top, widest) -->
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-5 border border-white/30 shadow-lg text-center">
+                        <span class="inline-block text-[10px] font-bold uppercase tracking-wider opacity-80 mb-1">1-й уровень</span>
+                        <div class="text-4xl md:text-5xl font-black mb-2 leading-none">15%</div>
+                        <p class="text-sm opacity-95 leading-snug">со всех платежей твоих рефералов</p>
+                    </div>
+                    <!-- TIER 2: +10% (middle, narrower) -->
+                    <div class="bg-white/15 backdrop-blur rounded-2xl p-4 border border-white/25 shadow-md text-center mx-4 md:mx-8">
+                        <span class="inline-block text-[10px] font-bold uppercase tracking-wider opacity-80 mb-1">2-й уровень</span>
+                        <div class="text-3xl md:text-4xl font-black mb-1.5 leading-none">+10%</div>
+                        <p class="text-xs md:text-sm opacity-95 leading-snug">с покупок рефералов твоих рефералов</p>
+                    </div>
+                    <!-- TIER 3: +5% (bottom, narrowest) -->
+                    <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/20 text-center mx-8 md:mx-16">
+                        <span class="inline-block text-[10px] font-bold uppercase tracking-wider opacity-80 mb-1">3-й уровень</span>
+                        <div class="text-2xl md:text-3xl font-black mb-1 leading-none">+5%</div>
+                        <p class="text-xs opacity-95 leading-snug">с покупок рефералов тех, кого привели твои рефералы</p>
+                    </div>
+                </div>
+
+                <p class="text-xs opacity-80 mt-6 pt-4 border-t border-white/20 text-center">
+                    Все проценты – пожизненные, начисляются с любых покупок и продлений в сервисе
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
+                <p class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">Выплаты</p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <div>
+                            <p class="font-semibold">Минимум 5 000 ₽</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Накопил – выплатили. Ниже порога – можешь докопить или использовать внутри сервиса</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <div>
+                            <p class="font-semibold">Карта, СБП, самозанятый, ИП</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Любой удобный для тебя способ</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <div>
+                            <p class="font-semibold">Cookie-окно 30 дней</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Зритель посмотрел сегодня, оплатил через три недели – деньги твои</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INCOME CALCULATOR -->
+<section id="calculator" class="bg-gray-900 dark:bg-black text-white py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Сколько ты заработаешь</h2>
+        <p class="text-base md:text-lg text-gray-300 text-center max-w-2xl mx-auto mb-12">
+            Средняя конверсия в платную подписку у амбассадоров – 23%, средний чек – 2 449 ₽/мес
+        </p>
+
+        <div class="bg-gray-800 dark:bg-gray-900 rounded-3xl p-8 md:p-10 border border-gray-700">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-3">
+                        Переходов по твоей ссылке в месяц
+                    </label>
+                    <div class="flex items-baseline gap-3 mb-3">
+                        <span id="clicks-value" class="text-4xl font-black text-primary">300</span>
+                        <span class="text-sm text-gray-400">кликов</span>
+                    </div>
+                    <input id="clicks-slider" type="range" min="50" max="3000" step="50" value="300" class="w-full">
+                    <div class="flex justify-between text-xs text-gray-500 mt-2">
+                        <span>50</span>
+                        <span>3 000</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-3">
+                        Через сколько месяцев считаем
+                    </label>
+                    <div class="flex items-baseline gap-3 mb-3">
+                        <span id="months-value" class="text-4xl font-black text-primary">6</span>
+                        <span class="text-sm text-gray-400">месяцев</span>
+                    </div>
+                    <input id="months-slider" type="range" min="1" max="24" step="1" value="6" class="w-full">
+                    <div class="flex justify-between text-xs text-gray-500 mt-2">
+                        <span>1 мес</span>
+                        <span>24 мес</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="bg-gray-900 dark:bg-black rounded-2xl p-6 border border-gray-700">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Доход в первый месяц</p>
+                    <div class="text-3xl md:text-4xl font-black text-white" id="first-month-income">11 376 ₽</div>
+                </div>
+                <div class="bg-primary rounded-2xl p-6">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">Доход за весь период</p>
+                    <div class="text-3xl md:text-4xl font-black text-white" id="total-income">68 256 ₽</div>
+                </div>
+            </div>
+
+            <p class="text-xl md:text-2xl font-black text-primary text-center mb-2">И это только от первого уровня!</p>
+            <p class="text-xs text-gray-400 text-center">
+                Расчёт показывает только доход с прямых рекомендаций (твой 1-й уровень). Доход со 2-го и 3-го уровней не учитываем здесь, так как он зависит от твоего нетворка
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Что получишь сразу после старта</h2>
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-14">
+            Никакой возни. Ссылка, промокоды, тариф, материалы, дашборд – всё на руках с первого дня
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                </div>
+                <h3 class="font-bold mb-1">Персональная ссылка</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Один клик – и переход уже привязан к тебе. Cookie держится 30 дней</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="font-bold mb-1">Дашборд в реальном времени</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Регистрации, оплаты, сумма к выплате, уровень – всё видно сразу, не нужно гадать</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-primary">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                </div>
+                <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2">Только для амбассадоров</span>
+                <h3 class="font-bold mb-1">База промо-материалов</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Ссылки, скрипты, механики, картинки, ПНГшки, базовые тексты для постов и сторис – под все площадки и форматы</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-primary">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2">Только для амбассадоров</span>
+                <h3 class="font-bold mb-1">Эксклюзивный промокод для аудитории</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Гибко настраивается под твою кампанию: даёт подписчикам дополнительные кредиты, скидки на тарифы или целые тарифы в подарок. Промокод можно встроить в речь и контент</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-primary">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                </div>
+                <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2">Только для амбассадоров</span>
+                <h3 class="font-bold mb-1">Специальный тариф «Амбассадор»</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Кредиты по себестоимости – дешевле в Sagana не бывает. Делай контент выгодно, тестируй модели на своих задачах без переплат</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-primary">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </div>
+                <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2">Только для амбассадоров</span>
+                <h3 class="font-bold mb-1">Менеджер на связи</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Живой человек, не бот. Поможет с идеями, утвердит креатив, решит вопрос за минуту</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-primary">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2">Только для амбассадоров</span>
+                <h3 class="font-bold mb-1">Ранний доступ к новым фичам</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Делаешь контент про новинки раньше всех – алгоритмы любят первых</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PERKS / GIVEAWAYS -->
+<section class="bg-gray-50 dark:bg-gray-800 py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Сверх процентов – розыгрыши и подарки</h2>
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-12">
+            Чем активнее ты – тем больше плюшек
+        </p>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 text-center">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                    <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+                </div>
+                <h3 class="font-bold mb-2">Розыгрыши призов</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Периодически разыгрываем что-то полезное и ценное среди амбассадоров – техника, подписки на сервисы, мерч, бонусные кредиты, тарифы, доступ к закрытым ивентам и многое другое
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 text-center">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                    <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                </div>
+                <h3 class="font-bold mb-2">Подарки за результаты</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Топ-амбассадоры получают персональные подарки – оплачиваемые поездки на курорты, премиальная техника, лучшие девайсы, индивидуальные предложения, фиксированные грейды – и вообще все что хочется – для лучших!
+                </p>
+            </div>
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 text-center">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                    <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                </div>
+                <h3 class="font-bold mb-2">Закрытое сообщество</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Чат амбассадоров: первым узнаёшь о новых фичах, обмениваешься опытом с другими амбассадорами, общаешься с основателями Sagana напрямую, имеешь ранние доступы ко всему функционалу и можешь смело предлагать любые свои идеи для совершенствования сервиса под твою аудиторию!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="bg-gray-50 dark:bg-gray-800 py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-14">Как начать</h2>
+
+        <div class="how-carousel relative">
+            <!-- Slides track -->
+            <div class="how-track overflow-hidden">
+                <div class="how-slides flex transition-transform duration-500 ease-out" style="transform: translateX(0)">
+                    <div class="how-slide w-full shrink-0 px-2 md:px-6">
+                        <div class="text-center max-w-md mx-auto">
+                            <div class="w-20 h-20 mx-auto rounded-2xl bg-primary text-white text-3xl font-black flex items-center justify-center mb-6 shadow-lg">1</div>
+                            <h3 class="text-xl font-bold mb-3">Подаёшь заявку</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-400">Заполняешь форму ниже – мы смотрим аудиторию и тематику</p>
+                        </div>
+                    </div>
+                    <div class="how-slide w-full shrink-0 px-2 md:px-6">
+                        <div class="text-center max-w-md mx-auto">
+                            <div class="w-20 h-20 mx-auto rounded-2xl bg-primary text-white text-3xl font-black flex items-center justify-center mb-6 shadow-lg">2</div>
+                            <h3 class="text-xl font-bold mb-3">Получаешь доступ</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-400">В течение 24 часов (а чаще – за пару минут) присылаем ссылку, промокоды, доступ в дашборд и пакет материалов</p>
+                        </div>
+                    </div>
+                    <div class="how-slide w-full shrink-0 px-2 md:px-6">
+                        <div class="text-center max-w-md mx-auto">
+                            <div class="w-20 h-20 mx-auto rounded-2xl bg-primary text-white text-3xl font-black flex items-center justify-center mb-6 shadow-lg">3</div>
+                            <h3 class="text-xl font-bold mb-3">Делишься со зрителями</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-400">Регулярно знакомишь аудиторию с сервисом, публикуешь посты, ролики, сторис – в твоём формате и стиле, как привычно и по кайфу тебе самому</p>
+                        </div>
+                    </div>
+                    <div class="how-slide w-full shrink-0 px-2 md:px-6">
+                        <div class="text-center max-w-md mx-auto">
+                            <div class="w-20 h-20 mx-auto rounded-2xl bg-primary text-white text-3xl font-black flex items-center justify-center mb-6 shadow-lg">4</div>
+                            <h3 class="text-xl font-bold mb-3">Получаешь выплаты</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-400">Каждый месяц на карту, СБП или счёт самозанятого</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arrows -->
+            <button id="how-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 w-11 h-11 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:bg-primary hover:text-white hover:border-primary transition disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Предыдущий шаг">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="how-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 w-11 h-11 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:bg-primary hover:text-white hover:border-primary transition disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Следующий шаг">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            <!-- Dots -->
+            <div class="flex justify-center gap-2 mt-8">
+                <button class="how-dot w-2.5 h-2.5 rounded-full bg-primary transition" data-step="0" aria-label="Шаг 1"></button>
+                <button class="how-dot w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition" data-step="1" aria-label="Шаг 2"></button>
+                <button class="how-dot w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition" data-step="2" aria-label="Шаг 3"></button>
+                <button class="how-dot w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition" data-step="3" aria-label="Шаг 4"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO FITS -->
+<section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-14">Кому подойдёт программа</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-primary">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="text-2xl">✓</span>
+                    <h3 class="text-xl font-bold text-primary">Подойдёт</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary mt-0.5">•</span>
+                        <span>Telegram, TikTok, YouTube, Дзен или своё медиа от 50 активных подписчиков</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary mt-0.5">•</span>
+                        <span>Тематика: технологии, маркетинг, бизнес, продуктивность, креатив, образование, родительство, фриланс, дизайн, код – что угодно, где аудитории нужны инструменты</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary mt-0.5">•</span>
+                        <span>Реальный engagement – комментарии, ответы, диалог с аудиторией</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary mt-0.5">•</span>
+                        <span>Готовность работать долгосрочно: партнёрство, не разовый пост</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="text-2xl">✕</span>
+                    <h3 class="text-xl font-bold text-gray-500 dark:text-gray-400">Не подойдёт</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                    <li class="flex items-start gap-2">
+                        <span class="text-gray-400 mt-0.5">•</span>
+                        <span>Накрученные подписчики и боты</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gray-400 mt-0.5">•</span>
+                        <span>Каналы со спамом, кликбейтом, контентом вне закона</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gray-400 mt-0.5">•</span>
+                        <span>«Закину ссылку и забуду» – без активного контента партнёрство не имеет смысла</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-gray-400 mt-0.5">•</span>
+                        <span>Прямые конкуренты Sagana и сервисы с похожим оффером</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-gray-50 dark:bg-gray-800 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-14">Часто спрашивают</h2>
+        <div class="space-y-3">
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    💰 Когда я получу первую выплату?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    До 10 числа месяца, следующего за отчётным, при достижении минимальной суммы 5 000 ₽. Если в текущем месяце накопилось меньше – сумма переносится дальше
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    🔗 Как работает многоуровневая структура?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Ты получаешь 15% с прямых рекомендаций – пользователей, которых ты привёл. Плюс 10% со 2-го уровня сети (тех, кого пригласили твои рефералы) и 5% с 3-го уровня (тех, кого пригласили рефералы твоих рефералов). Все три уровня приносят тебе доход с любых платежей твоих пользователей, пока они пользуются сервисом
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    ♾️ До какого момента я буду получать доход?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Пользователи, которых ты привёл (а так же их пользователи на еще два тира вглубь), привязаны к тебе навсегда. Пока они платят за подписку, докупают кредиты или совершают любую другую покупку в Sagana – ты получаешь свои проценты. Один пост, приведший постоянного пользователя, – это годы пассивного дохода
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    🤝 Можно совмещать амбассадорство с другими партнёрками?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Да, кроме программ прямых конкурентов (других ИИ-агрегаторов в России). Если параллельно рекламируешь, например, техническую периферию или SaaS – никаких ограничений
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    🤔 Что если аудитория совсем не покупает?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Никаких санкций – программа без минимальных обязательств. Но обычно при правильной подаче и аудитории «по теме» оплаты идут быстро. Менеджер поможет разобрать креативы и подсказать, что докрутить
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    🌱 А если у меня всего 50 подписчиков?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Это отличная новость! Если вовлечённость высокая, ниша подходящая, а контент живой – берём. Маленькая, но «горячая» аудитория конвертится лучше большой и холодной
+                </div>
+            </details>
+            <details class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 group">
+                <summary class="p-5 cursor-pointer font-semibold flex justify-between items-center">
+                    💼 Можно ещё фиксированную оплату за пост, помимо процентов?
+                    <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-400">
+                    Да, для эффективных инфлюенсеров и эксклюзивных интеграций обсуждаем различные гибкие форматы: это может быть в том числе фикс + %. Подавай заявку с указанием статистики – менеджер вернётся с конкретным предложением
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- APPLY FORM -->
+<section id="apply" class="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Готов начать?</h2>
+        <p class="text-base md:text-lg text-white/90 text-center mb-10">
+            Заполни заявку – проверим за 24 часа (а чаще быстрее) и вернёмся с доступом или вопросами
+        </p>
+        <form id="ambassador-form" class="bg-white text-gray-900 rounded-3xl p-8 md:p-10 shadow-2xl space-y-5">
+            <div>
+                <label class="block text-sm font-semibold mb-2">Как тебя зовут</label>
+                <input required type="text" name="name" placeholder="Имя и фамилия (или ник)" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-2">Ссылка на основной канал/блог</label>
+                <input required type="text" name="channel" placeholder="https://t.me/yourchannel или @yourchannel" pattern="^(https?:\/\/.+|@[A-Za-z0-9_]{3,}|[\w.\-]+\.[\w.\-]+.*)$" title="Введи ссылку (например, https://t.me/yourchannel) или @username канала" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30">
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Площадка</label>
+                    <select name="platform" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white">
+                        <option value="">Выбери…</option>
+                        <option>Telegram</option>
+                        <option>TikTok</option>
+                        <option>YouTube</option>
+                        <option>Дзен</option>
+                        <option>VK</option>
+                        <option>Своё медиа / сайт</option>
+                        <option>Другое</option>
+                        <option>Несколько площадок</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Размер аудитории</label>
+                    <select name="audience" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white">
+                        <option value="">Выбери…</option>
+                        <option>до 1 000</option>
+                        <option>1 000 – 5 000</option>
+                        <option>5 000 – 10 000</option>
+                        <option>10 000 – 20 000</option>
+                        <option>20 000 – 50 000</option>
+                        <option>50 000 – 100 000</option>
+                        <option>100 000 – 500 000</option>
+                        <option>500 000+</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-2">О чём твой контент</label>
+                <textarea required name="topic" rows="2" placeholder="Технологии, маркетинг, продуктивность, дизайн, обучение..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-2">Telegram для связи</label>
+                <input required type="text" name="contact" placeholder="@username" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30">
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold text-base transition">
+                Отправить заявку
+            </button>
+            <p class="text-xs text-gray-500 text-center pt-2">
+                Нажимая кнопку, ты соглашаешься на <a href="privacy.html" target="_blank" class="text-primary hover:underline">обработку персональных данных</a> в рамках амбассадорской программы Sagana
+            </p>
+
+            <div class="border-t border-gray-200 pt-5 mt-5">
+                <p class="text-sm text-gray-600 text-center mb-3">
+                    Если не отправляется заявка, нажмите
+                    <button type="button" id="copy-application" class="inline-flex items-center gap-1.5 bg-gray-900 hover:bg-gray-700 text-white px-3 py-1.5 rounded-lg text-sm font-semibold transition mx-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        Копировать
+                    </button>
+                    и вышлите содержимое на адрес
+                    <a href="mailto:ambassadors@sagana.ru" class="text-primary font-semibold hover:underline">ambassadors@sagana.ru</a>
+                </p>
+                <p id="copy-feedback" class="text-xs text-center text-green-600 font-semibold opacity-0 transition-opacity">Скопировано в буфер обмена</p>
+            </div>
+        </form>
+
+        <p class="text-center text-white/90 mt-8 text-sm">
+            Вопросы до подачи заявки? Пиши в Telegram:
+            <a href="https://t.me/help_sagana" target="_blank" class="font-bold underline hover:text-white">@help_sagana</a>
+            или на <a href="mailto:ambassadors@sagana.ru" class="font-bold underline hover:text-white">ambassadors@sagana.ru</a>
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 dark:bg-black text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="footer-logo.svg" alt="Sagana" class="h-12">
+            </div>
+            <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                <li><a href="https://sagana.ru/" target="_blank" class="hover:text-white transition">О сервисе</a></li>
+                <li><a href="https://t.me/saganaAmbassadors" target="_blank" class="hover:text-white transition">ТГ-амбассадоры</a></li>
+                <li><a href="https://t.me/MaterialSagana" target="_blank" class="hover:text-white transition">База знаний и материалы</a></li>
+                <li><a href="https://t.me/SaganaAI" target="_blank" class="hover:text-white transition">ТГ-канал</a></li>
+                <li><a href="https://t.me/help_sagana" target="_blank" class="hover:text-white transition">Поддержка</a></li>
+                <li><a href="mailto:ambassadors@sagana.ru" class="hover:text-white transition">ambassadors@sagana.ru</a></li>
+            </ul>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs">
+            &copy; 2026 Sagana. Все права защищены
+        </div>
+    </div>
+</footer>
+
+<script>
+// "HOW IT WORKS" CAROUSEL — arrows + dots
+(function() {
+    const track = document.querySelector('.how-slides');
+    const slides = document.querySelectorAll('.how-slide');
+    const prevBtn = document.getElementById('how-prev');
+    const nextBtn = document.getElementById('how-next');
+    const dots = document.querySelectorAll('.how-dot');
+    if (!track || slides.length === 0) return;
+    let index = 0;
+    function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+        dots.forEach((d, i) => {
+            if (i === index) {
+                d.classList.add('bg-primary');
+                d.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+            } else {
+                d.classList.remove('bg-primary');
+                d.classList.add('bg-gray-300', 'dark:bg-gray-600');
+            }
+        });
+    }
+    function go(i) { index = Math.max(0, Math.min(slides.length - 1, i)); update(); }
+    prevBtn.addEventListener('click', () => go(index - 1));
+    nextBtn.addEventListener('click', () => go(index + 1));
+    dots.forEach(d => d.addEventListener('click', () => go(parseInt(d.dataset.step, 10))));
+    // Touch swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+        const dx = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(dx) > 50) go(dx > 0 ? index + 1 : index - 1);
+    });
+    update();
+})();
+
+// "WHY" CARDS — scroll-linked stack-to-spread (desktop only; mobile = regular grid)
+(function() {
+    const grid = document.querySelector('.why-grid');
+    if (!grid) return;
+    const mqDesktop = window.matchMedia('(min-width: 1024px)');
+
+    let ticking = false;
+    function update() {
+        ticking = false;
+        if (!mqDesktop.matches) {
+            grid.style.setProperty('--reveal', '1'); // mobile: always spread
+            return;
+        }
+        const rect = grid.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        // Progress 0 → 1 как карточки в кадре:
+        // 0  — top карточек ниже 85% высоты экрана (стопка)
+        // 1  — top карточек дошёл до 30% высоты экрана (полностью разложены)
+        const triggerStart = vh * 0.85;
+        const triggerEnd = vh * 0.30;
+        const top = rect.top;
+        let progress = (triggerStart - top) / (triggerStart - triggerEnd);
+        progress = Math.max(0, Math.min(1, progress));
+        // Лёгкий ease-out, чтобы движение в конце замедлялось
+        progress = 1 - Math.pow(1 - progress, 2);
+        grid.style.setProperty('--reveal', progress.toFixed(3));
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    if (mqDesktop.addEventListener) mqDesktop.addEventListener('change', onScroll);
+    update();
+})();
+
+// INCOME CALCULATOR
+(function() {
+    const clicksSlider = document.getElementById('clicks-slider');
+    const monthsSlider = document.getElementById('months-slider');
+    const clicksValue = document.getElementById('clicks-value');
+    const monthsValue = document.getElementById('months-value');
+    const firstMonthEl = document.getElementById('first-month-income');
+    const totalEl = document.getElementById('total-income');
+
+    // Параметры расчёта (легко поправить под реальные данные программы)
+    const CONVERSION_RATE = 0.23;       // доля кликов, превращающаяся в платную подписку
+    const AVG_CHECK = 2449;             // средний чек подписки в рублях
+    const DIRECT_RATE = 0.15;           // комиссия с прямых рекомендаций (1-й уровень)
+    const RETENTION = 0.75;             // средняя месячная удерживаемость подписчиков
+
+    function fmt(n) {
+        return Math.round(n).toLocaleString('ru-RU') + ' ₽';
+    }
+
+    function recalc() {
+        const clicks = parseInt(clicksSlider.value, 10);
+        const months = parseInt(monthsSlider.value, 10);
+        clicksValue.textContent = clicks.toLocaleString('ru-RU');
+        monthsValue.textContent = months;
+
+        const newSubsPerMonth = clicks * CONVERSION_RATE;
+        const firstMonthIncome = newSubsPerMonth * AVG_CHECK * DIRECT_RATE;
+
+        // Накопительный доход (cohort-симуляция): каждый месяц новая когорта добавляется,
+        // старые когорты теряют RETENTION, все активные платят AVG_CHECK * DIRECT_RATE.
+        let total = 0;
+        let activeSubs = 0;
+        for (let m = 1; m <= months; m++) {
+            activeSubs = activeSubs * RETENTION + newSubsPerMonth;
+            total += activeSubs * AVG_CHECK * DIRECT_RATE;
+        }
+
+        firstMonthEl.textContent = fmt(firstMonthIncome);
+        totalEl.textContent = fmt(total);
+    }
+
+    clicksSlider.addEventListener('input', recalc);
+    monthsSlider.addEventListener('input', recalc);
+    recalc();
+})();
+
+// FORM HANDLER (заглушка – отправляем на email через mailto, для прода нужен бэкенд)
+function buildApplicationBody(form) {
+    const data = new FormData(form);
+    return [
+        'Заявка на амбассадорскую программу Sagana',
+        '',
+        'Имя: ' + (data.get('name') || ''),
+        'Канал: ' + (data.get('channel') || ''),
+        'Площадка: ' + (data.get('platform') || ''),
+        'Аудитория: ' + (data.get('audience') || ''),
+        'О чём контент: ' + (data.get('topic') || ''),
+        'Telegram для связи: ' + (data.get('contact') || '')
+    ].join('\n');
+}
+
+document.getElementById('ambassador-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const body = buildApplicationBody(e.target);
+    const data = new FormData(e.target);
+    const subject = 'Заявка амбассадора: ' + (data.get('name') || '');
+    window.location.href = 'mailto:ambassadors@sagana.ru?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+
+// COPY APPLICATION TO CLIPBOARD (fallback for blocked mailto)
+(function() {
+    const btn = document.getElementById('copy-application');
+    const form = document.getElementById('ambassador-form');
+    const feedback = document.getElementById('copy-feedback');
+    if (!btn || !form) return;
+    btn.addEventListener('click', function() {
+        const text = buildApplicationBody(form);
+        const flash = () => {
+            feedback.style.opacity = '1';
+            setTimeout(() => { feedback.style.opacity = '0'; }, 2500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(flash).catch(() => fallbackCopyText(text, flash));
+        } else {
+            fallbackCopyText(text, flash);
+        }
+    });
+    function fallbackCopyText(text, cb) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); cb && cb(); } catch (e) {}
+        document.body.removeChild(ta);
+    }
+})();
+</script>
+
+</body>
+</html>
